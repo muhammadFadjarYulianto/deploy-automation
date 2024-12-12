@@ -21,12 +21,14 @@ def rename_and_save_image(filename, folder_type):
     if folder_type == 'product':
         renamed_file = f"GreenLify-Product-{uid}-{filename}"
         save_path = os.path.join(PRODUCT_FOLDER, renamed_file)
-        img_url = f"{os.getenv('BASE_URL')}{os.path.join(app.config['PRODUCT_URL_PATH'], renamed_file).replace('\\', '/')}"
+        file_path = os.path.join(app.config['PRODUCT_URL_PATH'], renamed_file).replace('\\', '/')
+        img_url = f"{os.getenv('BASE_URL')}{file_path}"
 
     elif folder_type == 'article':
         renamed_file = f"GreenLify-Article-{uid}-{filename}"
         save_path = os.path.join(ARTICLE_FOLDER, renamed_file)
-        img_url = f"{os.getenv('BASE_URL')}{os.path.join(app.config['ARTICLE_URL_PATH'], renamed_file).replace('\\', '/')}"
+        file_path = os.path.join(app.config['ARTICLE_URL_PATH'], renamed_file).replace('\\', '/')
+        img_url = f"{os.getenv('BASE_URL')}{file_path}"
 
     source_path = os.path.join(GAMBAR_SEED_FOLDER, filename)
 
