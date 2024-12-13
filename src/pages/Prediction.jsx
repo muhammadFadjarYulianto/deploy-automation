@@ -257,7 +257,6 @@ const Prediction = () => {
         setIsLoading(true);
         try {
             const response = await uploadImage(imageData);
-            console.log(response);
             setPredictionResult(response);
             setIsPrediction(true); // Tampilkan hasil prediksi
             setIsLoading(false);
@@ -351,7 +350,6 @@ const Prediction = () => {
             try {
                 const name = predictionResult?.prediction;
                 const data = await getProducts(name ? {category_name: name} : {});
-                console.log("Fetched Products:", data.products);
                 // Log full product data to inspect structure
                 setProducts(data.products);
             } catch (error) {
@@ -685,46 +683,46 @@ const Prediction = () => {
                                                             </tr>
 
                                                             {/* Rekomendasi Produk Kerajinan */}
-                                                            <tr>
-                                                                <td className="px-2 py-1" colSpan={2}>
-                                                                    <Typography
-                                                                        variant="p-regular"
-                                                                        className="font-bold text-emerald-600"
-                                                                    >
-                                                                        Rekomendasi Produk
-                                                                    </Typography>
-                                                                </td>
-                                                                <td className="px-2 py-1">
-                                                                    <Typography
-                                                                        variant="p-regular"
-                                                                        className="font-bold text-emerald-600"
-                                                                    >
-                                                                        :
-                                                                    </Typography>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td className="px-2 py-1" colSpan={3}>
-                                                                    <div
-                                                                        className="max-w-xl flex gap overflow-auto gap-4">
-                                                                        {getCraftImagesByCategory(predictionResult.prediction).length > 0 ? (
-                                                                            getCraftImagesByCategory(predictionResult.prediction).map((src, index) => (
-                                                                                <img
-                                                                                    key={index}
-                                                                                    src={src}
-                                                                                    alt={`Craft-${index}`}
-                                                                                    className="rounded-md w-28 h-28"
-                                                                                />
-                                                                            ))
-                                                                        ) : (
-                                                                            <Typography variant="p"
-                                                                                        className="text-emerald-600">
-                                                                                Tidak ada produk yang direkomendasikan
-                                                                            </Typography>
-                                                                        )}
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                            {/*<tr>*/}
+                                                            {/*    <td className="px-2 py-1" colSpan={2}>*/}
+                                                            {/*        <Typography*/}
+                                                            {/*            variant="p-regular"*/}
+                                                            {/*            className="font-bold text-emerald-600"*/}
+                                                            {/*        >*/}
+                                                            {/*            Rekomendasi Produk*/}
+                                                            {/*        </Typography>*/}
+                                                            {/*    </td>*/}
+                                                            {/*    <td className="px-2 py-1">*/}
+                                                            {/*        <Typography*/}
+                                                            {/*            variant="p-regular"*/}
+                                                            {/*            className="font-bold text-emerald-600"*/}
+                                                            {/*        >*/}
+                                                            {/*            :*/}
+                                                            {/*        </Typography>*/}
+                                                            {/*    </td>*/}
+                                                            {/*</tr>*/}
+                                                            {/*<tr>*/}
+                                                            {/*    <td className="px-2 py-1" colSpan={3}>*/}
+                                                            {/*        <div*/}
+                                                            {/*            className="max-w-xl flex gap overflow-auto gap-4">*/}
+                                                            {/*            {getCraftImagesByCategory(predictionResult.prediction).length > 0 ? (*/}
+                                                            {/*                getCraftImagesByCategory(predictionResult.prediction).map((src, index) => (*/}
+                                                            {/*                    <img*/}
+                                                            {/*                        key={index}*/}
+                                                            {/*                        src={src}*/}
+                                                            {/*                        alt={`Craft-${index}`}*/}
+                                                            {/*                        className="rounded-md w-28 h-28"*/}
+                                                            {/*                    />*/}
+                                                            {/*                ))*/}
+                                                            {/*            ) : (*/}
+                                                            {/*                <Typography variant="p"*/}
+                                                            {/*                            className="text-emerald-600">*/}
+                                                            {/*                    Tidak ada produk yang direkomendasikan*/}
+                                                            {/*                </Typography>*/}
+                                                            {/*            )}*/}
+                                                            {/*        </div>*/}
+                                                            {/*    </td>*/}
+                                                            {/*</tr>*/}
                                                             </tbody>
                                                         </table>
                                                     </div>
