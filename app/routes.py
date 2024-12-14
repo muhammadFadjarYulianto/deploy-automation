@@ -3,15 +3,15 @@ from app.controller import AdminsController, CategoriesController, ProductsContr
 from flask import request, send_from_directory
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from app.controller.ProductsController import Products, format_array
+import os
 
 @app.route('/')
-def index():
-    return send_from_directory(app.static_folder, 'index.html')
-
-# Rute untuk file statis lainnya
 @app.route('/<path:path>')
-def static_files(path):
-    return send_from_directory(app.static_folder, path)
+def serve_react_app(path=''):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/login', methods=['POST'])
 def loginAdmin():
