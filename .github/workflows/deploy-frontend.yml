@@ -1,0 +1,29 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - frontend
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Install Dependencies
+      run: npm run setup
+
+    - name: Build React App
+      run: npm run build
+
+    - name: Deploy to Server
+      uses: appleboy/scp-action@v0.1.6
+      with:
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SERVER_PRIVATE_KEY }}
+        source: dist/
+        target: /var/www/frontend/
