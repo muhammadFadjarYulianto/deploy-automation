@@ -12,10 +12,10 @@ import os
 def loginAdmin():
     return AdminsController.loginAdmin()
 
-@app.route('/api/refresh', methods=['POST'])
-@jwt_required(refresh=True)
-def refresh_token():
-    return AdminsController.refreshToken()
+# @app.route('/api/refresh', methods=['POST'])
+# @jwt_required(refresh=True)
+# def refresh_token():
+#     return AdminsController.refreshToken()
 
 @app.route('/api/me', methods=['GET'])
 @jwt_required()
