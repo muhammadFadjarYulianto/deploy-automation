@@ -6,12 +6,7 @@ from app.controller.ProductsController import Products, format_array
 import os
 
 @app.route('/')
-@app.route('/<path:path>')
-def serve_react_app(path=''):
-    if path != "" and os.path.exists(app.static_folder + '/' + path):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
+    return "hello flask"
 
 @app.route('/api/login', methods=['POST'])
 def loginAdmin():
