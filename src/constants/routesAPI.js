@@ -1,4 +1,4 @@
-const END_POINT = 'http://127.0.0.1:5000';
+const END_POINT = 'http://13.228.244.152';
 export const LOGIN = `${END_POINT}/api/login`;
 export const ADMIN = `${END_POINT}/api/me`;
 export const REFRESH = `${END_POINT}/api/refresh`;
