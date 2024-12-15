@@ -6,7 +6,8 @@ from app.controller.ProductsController import Products, format_array
 import os
 
 @app.route('/')
-    return "hello flask"
+def index():
+    return "Hello Flask App"
 
 @app.route('/api/login', methods=['POST'])
 def loginAdmin():
